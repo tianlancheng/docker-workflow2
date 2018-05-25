@@ -1,0 +1,92 @@
+{
+    "workflowName":"workflow-demo",
+    "nodes": [
+    {
+        "id": "Za4Np9",
+        "type": "action",
+        "ctype": "job",
+        "paramSetting":
+        {
+            "fileName": "/nfs-data/input/test.txt"
+        },
+        "componentId": "create-file",
+        "displayName": "随机数据_1",
+        "componentName": "随机数据",
+        "script": "./run"
+    },
+    {
+        "id": "vA5fa3",
+        "type": "action",
+        "ctype": "job",
+        "paramSetting":
+        {
+            "inputFile": "/nfs-data/input/test.txt",
+            "outputFile": "/nfs-data/output/result1.txt",
+            "text": "hello"
+        },
+        "componentId": "write-text",
+        "displayName": "随机数据_1",
+        "componentName": "随机数据",
+        "script": "./run"
+    },
+    {
+        "id": "eBLdvS",
+        "type": "action",
+        "ctype": "job",
+         "paramSetting":
+        {
+            "inputFile": "/nfs-data/input/test.txt",
+            "outputFile": "/nfs-data/output/result2.txt",
+            "text": "world"
+        },
+        "componentId": "write-text",
+        "displayName": "随机数据_1",
+        "componentName": "随机数据",
+        "script": "./run"
+    },
+    {
+        "id": "YaB9nq",
+        "type": "action",
+        "ctype": "job",
+        "paramSetting":
+        {
+            "inputFile1": "/nfs-data/output/result1.txt",
+            "inputFile2": "/nfs-data/output/result2.txt",
+            "outputFile": "/nfs-data/output/result3.txt"
+        },
+        "componentId": "merge-two-file",
+        "displayName": "随机数据_1",
+        "componentName": "随机数据",
+        "script": "./run"
+    }],
+    "edges": [{
+        "source": "Za4Np9",
+        "target": "vA5fa3",
+        "data": {
+            "id": "25699c71-3a64-4f22-80b7-36359e56d9e6",
+            "type": "connection"
+        }
+    },{
+        "source": "Za4Np9",
+        "target": "eBLdvS",
+        "data": {
+            "id": "25699c71-3a64-4f22-80b7-36359e56d9e6",
+            "type": "connection"
+        }
+    },{
+        "source": "vA5fa3",
+        "target": "YaB9nq",
+        "data": {
+            "id": "25699c71-3a64-4f22-80b7-36359e56d9e6",
+            "type": "connection"
+        }
+    },{
+        "source": "eBLdvS",
+        "target": "YaB9nq",
+        "data": {
+            "id": "25699c71-3a64-4f22-80b7-36359e56d9e6",
+            "type": "connection"
+        }
+    }]
+
+}
